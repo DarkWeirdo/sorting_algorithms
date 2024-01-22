@@ -6,6 +6,7 @@
  * swap_nodes - Swaps two nodes in a doubly linked list
  * @list: The list to be modified
  * @node: The node var for swaps
+ * Return: a pointer to the node inside function
  */
 listint_t *swap_nodes(listint_t **list, listint_t *node)
 {
