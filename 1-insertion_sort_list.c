@@ -12,6 +12,7 @@ listint_t *swap_nodes(listint_t **list, listint_t *node)
 {
 	listint_t *current = node;
 	listint_t *previous = node->prev;
+
 	previous->next = current->next;
 	if (current->next)
 		current->next->prev = previous;
@@ -48,3 +49,4 @@ void insertion_sort_list(listint_t **list)
 		current = current->next;
 	}
 }
+
