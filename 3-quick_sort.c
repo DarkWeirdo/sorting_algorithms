@@ -4,18 +4,18 @@
  * @array: The array to be partitioned
  * @low: The lower bound of the array
  * @high: The upper bound of the array
- * @pivot_index: The index of the pivot
+ * @pivot_ndx: The index of the pivot
  *
  * Return: The index of the pivot after partitioning
  */
-static size_t partition(int *array, size_t low, size_t high, size_t pivot_index)
+static size_t partition(int *array, size_t low, size_t high, size_t pivot_ndx)
 {
-	int pivot_value = array[pivot_index];
+	int pivot_value = array[pivot_ndx];
 	size_t i;
 
 	/* Move pivot to end */
-	swap_integers(&array[pivot_index], &array[high]);
-	pivot_index = high;
+	swap_integers(&array[pivot_ndx], &array[high]);
+	pivot_ndx = high;
 
 	for (i = low; i < high; i++)
 	{
@@ -27,7 +27,7 @@ static size_t partition(int *array, size_t low, size_t high, size_t pivot_index)
 	}
 
 	/* Move pivot to correct position */
-	swap_integers(&array[low], &array[pivot_index]);
+	swap_integers(&array[low], &array[pivot_ndx]);
 
 	return (low);
 }
@@ -40,7 +40,7 @@ static size_t partition(int *array, size_t low, size_t high, size_t pivot_index)
  */
 void quick_sort(int *array, size_t size)
 {
-	size_t low, high, pivot_index;
+	size_t low, high, pivot_ndx;
 
 	if (size < 2)
 		return;
@@ -50,14 +50,14 @@ void quick_sort(int *array, size_t size)
 
 	while (low < high)
 	{
-		pivot_index = partition(array, low, high, high);
+		pivot_ndx = partition(array, low, high, high);
 
-		if (pivot_index > low)
+		if (pivot_ndx > low)
 		{
-			quick_sort(array, pivot_index);
+			quick_sort(array, pivot_ndx);
 		}
 
-		low = pivot_index + 1;
+		low = pivot_ndx + 1;
 	}
 
 	print_array(array, size);
