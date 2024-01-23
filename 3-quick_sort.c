@@ -1,4 +1,4 @@
-
+#include "sort.h"
 /**
  * partition - Partitions the array around a pivot
  * @array: The array to be partitioned
@@ -74,4 +74,3 @@ void swap_integers(int *a, int *b)
 	*a = *b;
 	*b = temp;
 }
-
